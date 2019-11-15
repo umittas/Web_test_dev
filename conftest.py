@@ -12,8 +12,8 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="class")
 def test_setup(request):
     from selenium import webdriver
-    from selenium.webdriver.chrome.options import Options
-    from selenium.webdriver.firefox.options import Options
+    from selenium.webdriver.chrome.options import Options as FireFoxOptions
+    from selenium.webdriver.firefox.options import Options as ChromeOptions
 
     #--browser parametresi boş bırakılırsa default olarak Chrome ile çalışır.
     browser = request.config.getoption("--browser")
@@ -26,16 +26,16 @@ def test_setup(request):
         #driver = webdriver.Ie(IEDriverManager().install())
     elif browser == 'firefox':
         fpath = "D:/SSO/Lirex-Solvay/Lirex Selenium Tests/drivers/geckodriver.exe"
-        options = Options()
+        options = FireFoxOptions()
         options.headless = True
         driver = webdriver.Firefox(executable_path= fpath, options= options)
         #driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
     else:
         cpath = "D:/SSO/Lirex-Solvay/Lirex Selenium Tests/drivers/chromedriver.exe"
-        chrome_options = Options()
-        #chrome_options.add_argument("--headless")
-        driver = webdriver.Chrome(executable_path= cpath)
+        chrome_options = ChromeOptions()
+        chrome_options.add_argument("--headless")
+        driver = webdriver.Chrome(executable_path= cpath, options= chrome_options)
         #driver = webdriver.Ie(IEDriverManager().install())
         #driver = webdriver.Chrome(ChromeDriverManager().install())
 
