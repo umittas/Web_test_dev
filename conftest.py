@@ -12,8 +12,8 @@ def pytest_addoption(parser):
 @pytest.fixture(scope="class")
 def test_setup(request):
     from selenium import webdriver
-    from selenium.webdriver.chrome.options import Options as FireFoxOptions
-    from selenium.webdriver.firefox.options import Options as ChromeOptions
+    from selenium.webdriver.firefox.options import Options as FireFoxOptions
+    from selenium.webdriver.chrome.options import Options as ChromeOptions
 
     #--browser parametresi boş bırakılırsa default olarak Chrome ile çalışır.
     browser = request.config.getoption("--browser")
@@ -25,17 +25,17 @@ def test_setup(request):
         #driver = webdriver.Chrome(ChromeDriverManager().install())
         #driver = webdriver.Ie(IEDriverManager().install())
     elif browser == 'firefox':
-        fpath = "D:/SSO/Lirex-Solvay/Lirex Selenium Tests/drivers/geckodriver.exe"
-        options = FireFoxOptions()
-        options.headless = True
-        driver = webdriver.Firefox(executable_path= fpath, options= options)
+        fpath = "D:/SSO/Lirex-Solvay/WebdriverManagerTest/drivers/geckodriver.exe"
+        #options = FireFoxOptions()
+        #options.headless = True
+        driver = webdriver.Firefox(executable_path=fpath)
         #driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
     else:
-        cpath = "D:/SSO/Lirex-Solvay/Lirex Selenium Tests/drivers/chromedriver.exe"
-        chrome_options = ChromeOptions()
-        chrome_options.add_argument("--headless")
-        driver = webdriver.Chrome(executable_path= cpath, options= chrome_options)
+        cpath = "D:/SSO/Lirex-Solvay/WebdriverManagerTest/drivers/chromedriver.exe"
+        #chrome_options = ChromeOptions()
+        #chrome_options.add_argument("--headless")
+        driver = webdriver.Chrome(executable_path= cpath)
         #driver = webdriver.Ie(IEDriverManager().install())
         #driver = webdriver.Chrome(ChromeDriverManager().install())
 
