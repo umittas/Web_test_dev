@@ -6,9 +6,9 @@ class LoginPage():
 
 #Kullanıcı adı ve parolanın alınarak girilmesi ve login butonuna tıklanması adımı
 
-        self.username_textbox_id    = "idToken1"
-        self.password_textbox_id    = "idToken2"
-        self.login_button_id        = "loginButton_0"
+        self.username_textbox_id    = "txtUsername"
+        self.password_textbox_id    = "txtPassword"
+        self.login_button_id        = "btnLogin"
 
     def enter_username(self, username):
         self.driver.find_element_by_id(self.username_textbox_id).clear()
@@ -28,9 +28,9 @@ class LoginPage2():
 
 #Kullanıcı adı ve parolanın alınarak girilmesi ve login butonuna tıklanması adımı
 
-        self.username_textbox_id    = "idToken1"
-        self.password_textbox_id    = "idToken2"
-        self.login_button_id        = "loginButton_0"
+        self.username_textbox_id    = "txtUsername"
+        self.password_textbox_id    = "txtPassword"
+        self.login_button_id        = "btnLogin"
 
     def enter_username(self, username):
         self.driver.find_element_by_id(self.username_textbox_id).clear()
